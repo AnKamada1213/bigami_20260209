@@ -1,0 +1,1699 @@
+@charset "UTF-8";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  color: #34251F;
+  font-family: serif, "Helvetica Neue", "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Arial, "meirio", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 1.125rem;
+  }
+
+a {
+  color: #34251F;;
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+  object-position: center top;
+}
+
+li {
+  list-style: none;
+}
+
+*{
+  box-sizing: border-box;
+}
+
+/*-------------------------------------------
+メインビジュアル
+-------------------------------------------*/
+
+#mainvisual-pc{
+ width: 100%;
+ height: 100vh; 
+ width: 100%;
+ height: 100vh;
+ background: linear-gradient(to bottom, #d5bdae 0%, #F1ECEA 100%);
+ position: relative;
+ overflow: hidden;
+}
+
+.top-image {
+ position: absolute;
+ right: 0;
+ top: 0;
+ height: 100%;
+ width: auto;
+ max-width: none;
+}
+
+.top-logo{
+  position: absolute;
+  top: 20vh;
+  left: 10%;
+  display: flex;
+  flex-direction: column;
+  color: #fff
+}
+
+@keyframes fadeInDown {
+  from {
+      opacity: 0;
+      transform: translateY(-30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+.station-info {
+  position: absolute;
+  top: 0px;  /* 画像の右上 */
+  right: 0px;
+  background: rgba(255, 255, 255, 0.8); /* 半透明の白背景 */
+  color: #333; /* 文字色 */
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* 影をつけて視認性アップ */
+}
+
+.top-logo p {
+  opacity: 0; /* 最初は見えない */
+  animation: fadeInDown 1s ease-out forwards;
+}
+
+.top-logo p:nth-child(1) {
+  animation-delay: 0.5s; /* 最初の要素は0.5秒後に */
+}
+
+.top-logo p:nth-child(2) {
+  animation-delay: 1s; /* 2番目の要素は1秒後に */
+}
+
+.store-name{
+  font-size: 4.6rem;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.company-name{
+  font-size: 4rem;
+  margin-left: 8px;
+  color: #AA4D53;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.text-box {
+ position: absolute;
+ top: 58vh;
+ left: 10%;
+ display: flex;
+ flex-direction: column;
+ gap: 10px; 
+}
+
+.text-box p {
+position: relative;
+ background: rgba(255, 255, 255, 0.8); 
+ color: #000;
+ font-size: 1.5rem;
+ padding: 10px 20px;
+ box-shadow: 5px 5px 0px rgba(201, 147, 144, 0.8); /* 赤い影も透明度80% */
+ display: inline-block;
+}
+
+#mainvisual-sp{
+  display: none;
+}
+
+/*-------------------------------------------
+共通
+-------------------------------------------*/
+
+.hidden {
+  opacity: 0; 
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wrapper{
+  max-width: 880px;
+  margin: 0px auto;
+}
+
+h2{
+  color: #AA4D53;
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.flex-container{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.strong-red-text{
+  color: #AA4D53;
+  font-size: 1.6rem;
+  border-bottom: 3px solid #AA4D53;
+}
+
+/*-------------------------------------------
+PagetopとLINEボタン
+-------------------------------------------*/
+
+#page-top a{
+	position: relative;
+  display: block;
+  padding: 15px 0;
+  font-size: 0.875rem;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+	background:#AA4D53;
+	border-radius: 50px;
+	width: 60px;
+	height: 60px;
+	text-transform: uppercase; 
+	text-decoration: none;
+	font-size:0.6rem;
+	transition:all 0.3s;
+}
+
+
+#page-top a::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 27px;
+  width: 9px;
+  height: 9px;
+  margin: auto;
+  border-top: 2px solid #fff;
+  border-right: 2px solid #fff;
+  transform: translateY(2px) rotate(315deg);
+  box-sizing: border-box;
+}
+
+#page-top a:hover{
+	background: #777;
+  z-index: 100;
+}
+
+#page-top {
+	position: fixed;
+	right: 40px;
+	bottom:120px;
+	z-index: 100;
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+#page-top.UpMove{
+	animation: UpAnime 0.5s forwards;
+}
+@keyframes UpAnime{
+  from {
+    opacity: 0;
+	transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+	transform: translateY(0);
+  }
+}
+
+
+#page-top.DownMove{
+	animation: DownAnime 0.5s forwards;
+}
+@keyframes DownAnime{
+  from {
+  	opacity: 1;
+	transform: translateY(0);
+  }
+  to {
+  	opacity: 1;
+	transform: translateY(100px);
+  }
+}
+
+#sns {
+  position: fixed;
+  right: 10px;
+  bottom: 5px;
+  z-index: 9999 !important; 
+  display: flex;
+  gap:10px;
+}
+
+#line a {
+  z-index: 100;
+  display: block;
+	border-radius: 5px;
+	width: 200px;
+	height: 90px;
+	text-align: center;
+	font-size: 0.6rem;
+	transition: all 0.3s; /* アニメーションのスムーズさ */
+}
+
+#line img {
+  z-index: 100;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	overflow: hidden;
+}
+
+#line a:hover {
+  z-index: 100;
+	transform: scale(1.1); /* ホバー時に少し大きくする */
+}
+
+#line {
+  z-index: 100;
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+#line.UpMove {
+	animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/*　下に下がる動き　*/
+#line.DownMove {
+	animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+}
+
+#page-top.FadeOut, #line.FadeOut {
+	opacity: 0;
+	transition: opacity 0.5s ease-out;
+}
+
+#hotpepper a {
+  z-index: 100;
+  display: block;
+	border-radius: 5px;
+	width: 200px;
+	height: 90px;
+	color: #fff;
+	font-size: 0.6rem;
+	transition: all 0.3s;
+}
+
+#hotpepper img {
+  z-index: 100;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+	overflow: hidden;
+}
+
+#hotpepper a:hover {
+  z-index: 100;
+	transform: scale(1.1); 
+}
+
+#hotpepper {
+  z-index: 100;
+	opacity: 0;
+	transform: translateY(100px);
+}
+
+#hotpepper.UpMove {
+	animation: UpAnime 0.5s forwards;
+}
+
+@keyframes UpAnime {
+	from {
+		opacity: 0;
+		transform: translateY(100px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+#hotpepper.DownMove {
+	animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(100px);
+	}
+}
+
+#page-top.FadeOut, #hotpepper.FadeOut {
+	opacity: 0;
+	transition: opacity 0.5s ease-out;
+}
+
+.Hidden {
+  opacity: 0;
+  display: none;
+  transition: all 0.3s;
+}
+
+/*-------------------------------------------
+共通
+-------------------------------------------*/
+#message,
+#question,
+#reason,
+#change,
+#voice,
+#menu,
+#coupon,
+#qa{
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/*-------------------------------------------
+メッセージ
+-------------------------------------------*/
+
+#message{
+  margin: 0 auto;
+  text-align: center;
+  background-color: #F1ECEA;
+}
+
+#message h2 {
+  line-height: 1.8;
+}
+
+#message .description{
+  margin: 32px 0;
+}
+
+.problem-box {
+  position: relative; 
+  background-color: #ffffff;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+}
+
+#message .problem-box::after {
+  z-index: 10;
+  display: block; 
+  content: "";
+  position: absolute;
+  right: -80px; /* 右に配置 */
+  bottom: -110px; /* 下に配置 */
+  width: 240px; /* 画像の幅 */
+  height: 240px; /* 画像の高さ */
+  background-image: url("../img/worried-woman.png"); /* 親フォルダを指定 */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+}
+
+.problem-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  padding-left: 30px;
+  display: flex;
+}
+
+.checkbox {
+  width: 20px;  
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-right: 10px;
+}
+
+
+.checkbox img {
+  width: 16px; /* アイコンのサイズを明示的に指定 */
+  height: 16px;
+  object-fit: contain; /* 画像の比率を保つ */
+}
+
+
+.red-text{
+  color: #AA4D53;
+}
+
+.quote {
+  font-style: italic;
+  margin-top: 32px;
+}
+
+.final-message {
+  font-size: 1.6rem;
+  line-height: 1.8;
+  font-weight: bold;
+  color:  #AA4D53;
+  margin-top: 32px;
+}
+
+.collage {
+  margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.collage li {
+  width: 23%; 
+}
+
+.collage img {
+  width: 100%; 
+  height: auto;
+  display: block;
+}
+
+/*-------------------------------------------
+問いかけ
+-------------------------------------------*/
+#question {
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff; 
+  background-image: 
+    repeating-linear-gradient(#d5bdae 0px, #d5bdae 0.5px, transparent 0.5px, transparent 40px),
+    repeating-linear-gradient(90deg, #d5bdae 0px, #d5bdae 0.5px, transparent 0.5px, transparent 40px);
+  background-size: 40px 40px;
+  background-repeat: repeat; 
+  background-position: 0 0; 
+  height: 100%; 
+}
+
+#question p{
+  line-height: 1.6;
+}
+
+#question .ita{
+  font-weight: bold;
+}
+
+#question p{
+  margin-top: 24px;
+  font-weight: bold;
+}
+
+/*-------------------------------------------
+3つの理由
+-------------------------------------------*/
+#reason{
+    background-color: #D5BDAE;
+    margin: 0 auto ;
+    text-align: center;
+}
+
+.reason-section {
+    max-width: 800px;
+    margin: 50px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.reason-header {
+  letter-spacing :0.05em;
+  font-size: 3rem;
+  color: #AA4D53
+}
+
+.reason-header .number {
+    display: inline-block;
+    background-color: #AA4D53;
+    color: #ffffff; 
+    font-size: 3rem;
+    font-weight: bold;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 50%; /* 丸型 */
+    text-align: center;
+}
+
+.reason-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 24px auto;
+}
+
+.reason-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.reason-item:last-child {
+    border-bottom: none;
+}
+
+.point {
+    font-size: 1.2rem;
+    writing-mode: vertical-rl;
+}
+
+.reason-item h3 {
+    font-size: 2.5rem;
+    color: #AA4D53; 
+    font-family: 'Yu Mincho', 'Hiragino Mincho Pro', serif; /* 明朝体 */
+    margin: 0 12px 0 4px;
+}
+
+.reason-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 100%; /* 親要素内に収める */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    text-align: left;
+}
+
+.reason-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #AA4D53;
+    margin-bottom: 5px;
+}
+
+.reason-text {
+    word-break: break-word;
+}
+
+/*-------------------------------------------
+begore/after
+-------------------------------------------*/
+#change{
+  background-color: #F7F2EE;
+  text-align: center;
+  margin: 0 auto;
+}
+
+#change .problem-box p{
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.comparison-section {
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.comparison-list li{
+  margin-top: 60px;
+}
+
+.comparison {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 上下中央揃え */
+  gap: 20px; /* beforeとafterの間の余白 */
+  margin-bottom: 20px;
+}
+
+.before,
+.after {
+    position: relative; /* これを追加 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fff; /* 背景を白に */
+    border-radius: 10px; /* 角を少し丸める */
+    box-shadow: 0 0 0 6px #fff; /* 太めの白枠を再現 */
+}
+
+.before{
+  width:38%;
+}
+
+.after{
+  width:46%;
+}
+
+.label {
+    position: absolute;
+    top: 0;  /* 画像の左上に配置 */
+    left: 0; /* 画像の左上に配置 */
+    background-color:#78aaa7;
+    color: #fff;
+    padding: 10px 16px;
+    font-size: 1.6rem;
+    border-radius: 5px 0 5px 0; /* 右下を丸くしてデザイン調整 */
+}
+
+.before img,
+.after img {
+  width: 100%;
+}
+
+.before img,
+.after img {
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.after-label {
+  background-color: #AA4D53;
+}
+
+/* 矢印のデザイン */
+.arrow {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #D5BDAE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+}
+
+/*-------------------------------------------
+口コミ
+-------------------------------------------*/
+#voice{
+  background-color: #D5BDAE;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.voice-list{
+  margin-top: 32px;
+  margin-bottom: 32px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  }
+  
+.voice-list img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  }
+
+.text-xs{
+  margin-top: 8px;
+  font-size: 0.6rem;
+}
+
+/*-------------------------------------------
+メニューとクーポンの共通
+-------------------------------------------*/
+.large-wrapper{
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+#menu-coupon{
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff; /* 背景色 */
+  background-image: 
+    repeating-linear-gradient(#d5bdae 0px, #d5bdae 0.5px, transparent 0.5px, transparent 40px),
+    repeating-linear-gradient(90deg, #d5bdae 0px, #d5bdae 0.5px, transparent 0.5px, transparent 40px);
+  background-size: 40px 40px; /* マスのサイズ */
+  background-repeat: repeat; /* 背景を繰り返す */
+  background-position: 0 0; /* 位置調整 */
+  height: 100%; /* 画面全体の高さを確保 */
+}
+
+/*-------------------------------------------
+メニュー
+-------------------------------------------*/
+.menu-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 40px auto;
+}
+
+.menu-card {
+  background-color: #fff;
+  border:1px solid #AA4D53;
+  border-radius: 10px;
+  padding: 18px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  text-align: center;
+}
+
+.badge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 56px;
+  height:56px;
+  background-color: #AA4D53;
+  color: #fff;
+  font-size: 1.6rem;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color:#AA4D53;
+}
+
+.price {
+  font-size: 1.375rem;
+  font-weight: bold;
+  color: #D33;
+}
+
+.time {
+  margin-top: 16px;
+  margin-bottom: 24px;
+  background-color: #d5bdae;
+  padding: 16px 24px;
+  display: inline-block;
+  /* font-size: 1.2rem; */
+  /* font-weight: bold; */
+  border-radius: 5px;
+}
+
+#menu .description{
+  line-height: 1.6;
+  text-align: left;
+}
+
+/*-------------------------------------------
+クーポン
+-------------------------------------------*/
+
+/* クーポンコンテナ */
+.coupon-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin: 40px auto;
+}
+
+/* クーポンデザイン */
+.coupon {
+  background-color: #fff;
+  border-radius: 50%;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: relative;
+  margin: 40px auto;
+  overflow: hidden; /* はみ出し防止 */
+}
+
+/* 円の上40%をベージュにする */
+.coupon::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40%; /* 上40%だけ適用 */
+  background-color: #D5BDAE;
+  border-top-left-radius: 50%;
+  border-top-right-radius: 50%;
+}
+
+/* クーポンタイトルを円の内側に */
+.coupon-header {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding: 12px;
+  border-radius: 12px;
+  width: 80%;
+  text-align: center;
+  position: relative;
+  top: 0;
+  margin-bottom: 10px; 
+}
+
+.coupon-body {
+  position: absolute; 
+  top: 43%; 
+  width: 100%; 
+  text-align: center;
+}
+
+.original-price {
+  text-decoration: line-through;
+  position: relative; 
+  display: inline-block;
+}
+
+.original-price::after {
+  content: "↓";  /* 矢印 */
+  font-weight: bold;
+  text-decoration: none;  /* これで解除 */
+  display: block; /* ブロック要素にして改行 */
+  text-align: center; /* 中央揃え */
+  position: absolute;  /* 独立させる */
+  top: 100%;  /* 下に配置 */
+  left: 50%;  /* 中央寄せ */
+  transform: translateX(-50%);  /* 中央調整 */
+}
+
+.original-price span {
+  font-weight: bold;
+}
+
+.discounted-price {
+  margin-top: 18px;
+  font-size: 1.8rem;
+  color: #d33;
+  font-weight: bold;
+}
+
+/*-------------------------------------------
+CTA
+-------------------------------------------*/
+
+#cta .throwing{
+  border-bottom: 1px solid #AA4D53;
+  margin-top: 40px;
+  font-size: 1.6rem; 
+  color: #AA4D53; 
+  text-align: center; 
+  background-color: #FFE5E5;
+  padding: 15px;
+  border-radius: 10px; 
+  margin-bottom: 20px;
+}
+
+.sns-cta {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center; 
+  gap: 20px; 
+  margin-bottom: 40px;
+}
+
+.line-cta,
+.hotpepper-cta {
+  width: 50%;
+  text-align: center; 
+}
+
+.line-cta img,
+.hotpepper-cta img {
+  width: 100%; 
+  max-width: 300px;
+  height: auto;
+  transition: transform 0.3s ease-in-out; 
+}
+
+.line-cta img:hover,
+.hotpepper-cta img:hover {
+  transform: scale(1.1);
+}
+
+#cta .strong-red-text{
+  border-bottom: none;
+  text-align: center;
+}
+
+/*-------------------------------------------
+技術保証
+-------------------------------------------*/
+
+#guarantee{
+  margin: 40px auto;
+  text-align: center;
+}
+
+#guarantee p{
+  margin-top: 40px;
+  line-height: 1.6;
+}
+
+
+/*-------------------------------------------
+店舗紹介
+-------------------------------------------*/
+
+#shop{
+  margin: 0px auto;
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #d5bdae;
+}
+
+.shop-container {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.shop-image {
+  width: 49%;
+}
+
+.shop-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.shop-info {
+  width: 49%;
+  padding: 20px;
+  text-align: left;
+  position: relative; 
+  min-height: 200px;
+}
+
+.shop-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #AA4D53;
+}
+
+/* 区切り線 */
+hr {
+  border: none;
+  height: 0.5px;
+  background-color: #34251F;
+  margin: 10px 0;
+}
+
+/* 見出し */
+.info-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.shop-map {
+  margin-top: 12px;
+}
+
+.shop-map iframe {
+  width: 100%;
+  height: 140px;   /* ← 好きな高さに変更 */
+  border: 0;
+  border-radius: 8px;
+}
+
+
+/* 住所と営業時間 */
+.shop-address,
+.shop-hours {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.shop-button{
+  position: absolute; 
+  right: 0; 
+  bottom: 0; 
+}
+
+/* 詳細ボタン */
+.shop-button a{
+  display: inline-flex;
+  align-items: center;
+  background-color: #fff;
+  color: #AA4D53;
+  padding: 8px 15px;
+  border: 3px solid #AA4D53;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+.shop-button .arrow {
+  margin-left: 5px;
+  font-size: 14px;
+  color:  #AA4D53;
+}
+
+.shop-image {
+  width: 49%;
+  text-align: left;
+}
+
+.shop-name {
+  font-size: 22px;
+  font-weight: bold;
+  color: #AA4D53;
+  margin-bottom: 10px; /* 画像との余白 */
+}
+
+
+/*-------------------------------------------
+系列店舗
+-------------------------------------------*/
+#series{
+  margin: 60px 0;
+}
+
+.series-list li {
+  margin: 24px auto;
+  width: 80%;
+  text-align: left; 
+  position: relative;
+}
+
+.series-list li a {
+  display: block; /* flex から block に変更 */
+  text-decoration: none;
+  background-color: #f9f6f6;
+  border: 2px solid #d5bdae;  
+  border-radius: 8px;
+  padding: 15px;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+.series-list li a:hover {
+  background-color: #d5bdae; 
+}
+
+.series-list li a::after {
+   content: '▶'; 
+   font-size: 1em; 
+   color: #d5bdae; 
+   position: absolute; /* 追加 */ 
+   right: 20px; /* 追加 */ 
+   top: 50%; /* 中央揃え */
+  transform: translateY(-50%); /* 中央揃え */
+}
+
+.series-address {
+  font-weight: normal; /* 住所は太字にしない */
+  font-size: 1rem;
+}
+
+/*-------------------------------------------
+CEO
+-------------------------------------------*/
+
+#ceo {
+  display: flex;
+  justify-content: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+#ceo .wrapper {
+  padding: 40px;
+  background-color: #fff;
+  text-align: center;
+  line-height: 1.8;
+  position: relative;
+  border: 2px solid #D5A7A0; /* 内側の薄めの赤 */
+  border-radius: 10px;
+  z-index: 1; /* 背景に隠れないようにする */
+}
+
+#ceo .wrapper::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid #AA4D53; /* 外側の濃い赤 */
+  border-radius: 10px; /* wrapperと同じにする */
+  z-index: -1; /* 背景の後ろに配置 */
+}
+
+.message-content{
+  margin-top: 40px;
+}
+
+/* 強調テキスト */
+.highlight {
+  font-weight: bold;
+  color: #AA4D53;
+}
+
+/* 強調されたメッセージ */
+.message-highlight {
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: #AA4D53;
+  margin-top: 20px;
+}
+
+/* 署名 */
+.signature {
+  margin-top: 30px;
+  text-align: right;
+}
+
+/*-------------------------------------------
+よくあるご質問
+-------------------------------------------*/
+.section-top{
+  margin-top: 20px;
+  width: 100%;
+  height: 80%;
+}
+
+.section-top img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+#qa{
+  margin: 0 auto;
+  text-align: center;
+  background-color: #fff; /* 背景色 */
+  background-image: 
+    repeating-linear-gradient(#d5bdae 0px, #d5bdae 0.5px, transparent 0.5px, transparent 40px),
+    repeating-linear-gradient(90deg, #d5bdae 0px, #d5bdae 0.5px, transparent 0.5px, transparent 40px);
+  background-size: 40px 40px; /* マスのサイズ */
+  background-repeat: repeat; /* 背景を繰り返す */
+  background-position: 0 0; /* 位置調整 */
+  height: 100%; /* 画面全体の高さを確保 */
+}
+
+.accordion-area{
+  width: 96%;
+  max-width: 800px;
+  margin:0 auto;
+}
+
+.accordion-area li{
+  margin: 10px 0;
+}
+
+.accordion-area section {
+border: 1px solid #ccc;
+background-color: #f3f3f3;
+}
+
+.qa_title {
+  position: relative;/*+マークの位置基準とするためrelative指定*/
+  cursor: pointer;
+  font-size:1rem;
+  font-weight: bold;
+  padding: 3% 3% 3% 50px;
+  transition: all .5s ease;
+  text-align: left;
+}
+
+.qa_title::before,
+.qa_title::after{
+  position: absolute;
+  content:'';
+  width: 15px;
+  height: 2px;
+  background-color: #333; 
+}
+
+.qa_title::before{
+  top:48%;
+  left: 15px;
+  transform: rotate(0deg);
+  
+}
+.qa_title::after{    
+  top:48%;
+  left: 15px;
+  transform: rotate(90deg);
+
+}
+.qa_title.close::before{
+transform: rotate(45deg);
+}
+
+.qa_title.close::after{
+transform: rotate(-45deg);
+}
+
+.qa_box {
+  text-align: left;
+  font-size: 1rem;
+  display: none;
+  background: #fff;
+  margin:0 3% 3% 3%;
+  padding: 3%;
+}
+
+
+/*-------------------------------------------
+地図
+-------------------------------------------*/
+
+#google-map{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #F1ECEA;
+}
+
+.google-map-list{
+  width: 60%;
+  margin: 24px auto;
+  text-align: left
+}
+
+/*-------------------------------------------
+lineバナー
+-------------------------------------------*/
+
+.line3 {
+  width: 280px;
+  height: 80px;
+  overflow: hidden;
+  margin: 32px auto;
+  border-radius: 12px; 
+  transition: transform 0.4s ease; /* 拡大を緩やかに */
+}
+
+.line3:hover {
+  transform: scale(1.05); 
+}
+
+.line3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px; 
+}
+
+#money .line3{
+  margin: 0px auto 40px auto;
+} 
+
+
+/*-------------------------------------------
+footer
+-------------------------------------------*/
+footer{
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width:100% ;
+  height: 80px;
+  background-color: #AA4D53;
+  margin-top: 40px;
+}
+
+#copy{
+  text-align: center;
+  color: #fff;
+  font-size: 0.7rem;
+}
+
+/*-------------------------------------------
+SP
+-------------------------------------------*/
+@media (max-width: 750px) {
+
+  body {
+    font-weight: 1rem;
+  }
+
+.wrapper{
+  padding: 10px;
+}
+
+#mainvisual-pc{
+  display: none;
+ }
+ 
+#mainvisual-sp{
+  display: block;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+ }
+
+ #mainvisual-sp img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+ }
+
+.top-logo{
+  top: 30vh;
+  left: 3%;
+}
+
+.text-box {
+ top: 60vh;
+ left: 3%;
+ display: flex;
+ flex-direction: column;
+ gap: 8px; /* 行間の余白 */
+}
+
+.text-box p {
+position: relative;
+ background: rgba(255, 255, 255, 0.8); /* 白色 + 透明度80% */
+ color: #000;
+ font-size: 1.2rem;
+ padding: 10px 20px;
+ box-shadow: 5px 5px 0px rgba(201, 147, 144, 0.8); /* 赤い影も透明度80% */
+ display: inline-block; /* 各行をボックス化 */
+}
+
+.store-name{
+  font-size: 3.1rem;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+.company-name{
+  font-size: 3rem;
+  margin-left: 8px;
+  color: #AA4D53;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/*-------------------------------------------
+共通
+-------------------------------------------*/
+
+h2{
+  font-size: 1.1rem;
+}
+
+h3{
+  font-size: 1rem;
+}
+
+.strong-red-text{
+  font-size: 1.2rem;
+}
+
+.wrapper{
+  margin: 0px auto;
+}
+
+#message,
+#change,
+#voice
+#reason,
+#question,
+#voice,
+#menu,
+#coupon,
+#qa{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/*-------------------------------------------
+トップ
+-------------------------------------------*/
+
+.final-message {
+  font-size: 1.2rem;
+}
+/*-------------------------------------------
+店舗
+-------------------------------------------*/
+.store-list li {
+  margin: 24px auto;
+  width: 95%;
+  text-align: left; /* 左揃えにする */
+  position: relative;
+}
+
+/*-------------------------------------------
+口コミ
+-------------------------------------------*/
+
+.voice-list{
+  grid-template-columns: repeat(1, 1fr);
+  }
+
+
+/*-------------------------------------------
+メニュー
+-------------------------------------------*/
+.menu-container {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+/*-------------------------------------------
+クーポン
+-------------------------------------------*/
+
+/* クーポンコンテナ */
+.coupon-list {
+  grid-template-columns: repeat(1, 1fr);
+  gap: 16px;
+  margin: 12px auto;
+}
+
+/* クーポンデザイン */
+.coupon {
+  margin: 12px auto;
+}
+
+/*-------------------------------------------
+メッセージ
+-------------------------------------------*/
+
+.message-list {
+  line-height: 1.6;          
+}
+
+.message-list li {
+  font-size: 0.85rem;
+}
+
+.red{
+  color: #b3003a; 
+  font-size: 1.4rem;    
+}
+
+#message .problem-box::after {
+  right: -10px;
+  bottom: -110px;
+  width: 180px;
+  height: 180px;
+}
+
+.problem-list li {
+  padding-left: 0px;
+}
+
+.collage li {
+  width: 48%; 
+}
+
+/*-------------------------------------------
+店舗紹介
+-------------------------------------------*/
+  .shop-container {
+    flex-direction: column; 
+    align-items: center; 
+    padding: 16px;
+  }
+
+  .shop-image, 
+  .shop-info {
+    width: 95%; 
+  }
+
+  .shop-map iframe {
+    height: 240px;
+}
+
+  .shop-info {
+    text-align: left;
+  }
+
+  .shop-button {
+    position: static; 
+    margin-top: 10px;
+    text-align: center;
+  }
+
+/*-------------------------------------------
+3つの理由
+-------------------------------------------*/
+.reason-section {
+  padding: 10px;
+}
+
+.reason-list {
+  max-width: 98%;
+}
+
+.reason-item {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 15px 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.reason-item:last-child {
+  border-bottom: none;
+}
+
+ /*-------------------------------------------
+比較
+-------------------------------------------*/
+.label {
+  padding: 6px 8px;
+  font-size: 1rem;
+}
+
+ /*-------------------------------------------
+page-topやline等
+-------------------------------------------*/
+
+#page-top {
+	position: fixed;
+	right: 2px;
+	bottom:100px;
+}
+
+#sns {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  justify-content: space-around;
+  flex:1;
+  gap:0px
+  }
+
+#line a,
+#hotpepper a {
+    width: 98%;
+    height: auto;
+    padding:8px 1%;
+  }
+
+#money .line3{
+  margin: 32px auto 0px auto;
+} 
+
+/*-------------------------------------------
+CTA
+-------------------------------------------*/
+
+#cta .throwing {
+  font-size: 1.2rem; 
+  color: #AA4D53; 
+}
+
+.sns-cta {
+  flex-direction: column;
+}
+
+.line-cta,
+.hotpepper-cta {
+  max-width: 300px;
+  width: 100%;
+  text-align: center; 
+  margin: 0 auto;
+}
+
+.line-cta img,
+.hotpepper-cta img {
+  width: 100%; 
+  height: auto;
+}
+
+/*-------------------------------------------
+技術保証
+-------------------------------------------*/
+
+#guarantee p{
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+
+}
