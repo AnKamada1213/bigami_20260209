@@ -31,6 +31,10 @@ li {
   box-sizing: border-box;
 }
 
+.sp-br{
+  display: none;
+}
+
 /*-------------------------------------------
 メインビジュアル
 -------------------------------------------*/
@@ -426,7 +430,7 @@ PagetopとLINEボタン
 }
 
 #message h2 {
-  line-height: 1.8;
+  line-height: 1.;
 }
 
 #message .description{
@@ -1436,9 +1440,9 @@ SP
 -------------------------------------------*/
 @media (max-width: 750px) {
 
-  body {
-    font-weight: 1rem;
-  }
+body {
+  font-weight: 1rem;
+}
 
 .wrapper{
   padding: 10px;
@@ -1500,6 +1504,10 @@ position: relative;
 共通
 -------------------------------------------*/
 
+.sp-br{
+  display: inline;
+}
+
 h2{
   font-size: 1.1rem;
 }
@@ -1510,6 +1518,10 @@ h3{
 
 .strong-red-text{
   font-size: 1.2rem;
+}
+
+.strong-red-text-sp{
+  font-size: 1rem;
 }
 
 .wrapper{
@@ -1681,8 +1693,18 @@ h3{
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 15px 8px;
+  padding:8px;
   border-bottom: 1px solid #ddd;
+}
+
+.reason-header {
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.reason-text {
+  margin-left: 5px;
+  font-size: 0.98rem;
 }
 
 .reason-item:last-child {
@@ -1729,6 +1751,20 @@ page-topやline等
 #money .line3{
   margin: 32px auto 0px auto;
 } 
+
+
+/*-------------------------------------------
+CEO
+-------------------------------------------*/
+#ceo .message-highlight {
+  font-size: 1.2rem;
+  margin-top: 18px;
+}
+
+#ceo p{
+  font-size: 0.9rem;
+  margin-top: 1px;
+}
 
 /*-------------------------------------------
 CTA
