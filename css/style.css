@@ -1466,12 +1466,12 @@ body {
  }
 
 .top-logo{
-  top: 30vh;
+  top: 45vh;
   left: 3%;
 }
 
 .text-box {
- top: 60vh;
+ top: 65vh;
  left: 3%;
  display: flex;
  flex-direction: column;
